@@ -47,11 +47,15 @@ function searchDirectory(RecursiveDirectoryIterator $iterator, \League\CLImate\T
         else{
             if($file[count($file)-1] === "composer.json"){
                 $autoloaders = json_decode(file_get_contents(implode("/", $file)), true)["autoload"];
-                foreach(new RecursiveIteratorIterator(new RecursiveArrayIterator($autoloaders)) as $name => $item){
-                    if(!is_array($item)){
-                        $to = "src/" . str_replace("\\", "/", $name);
-                        @mkdir($to, 0775, true);
-                        copyDirectory(implode("/", array_slice($file, 0, -1)) . "/" . $item, $to, $progress);
+                $loaderIterator = new RecursiveArrayIterator($autoloaders);
+                foreach($loaderIterator as $type => $loaders){
+                    if(is_array($loaders)){
+                        foreach($loaders as $name => $item) {
+                            if($type === "psr-0") $to = "src";
+                            else $to = "src/" . str_replace("\\", "/", $name);
+                            @mkdir($to, 0775, true);
+                            copyDirectory(implode("/", array_slice($file, 0, -1)) . "/" . $item, $to, $progress);
+                        }
                     }
                 }
             }
