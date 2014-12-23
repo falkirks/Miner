@@ -9,3 +9,5 @@ It would be suboptimal if people ran `composer install` without the wrapper. If 
 
 ### Using Miner
 Using miner is easy. Just download composer and install it somewhere standard. Then download a Miner phar build and stick it somewhere you can access it easily. Now you can use `Miner.phar` in place of `composer.phar` when interacting with PocketMine plugins.
+
+![Demo](/assets/demo.gif)
