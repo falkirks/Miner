@@ -6,3 +6,6 @@ Miner doesn't have much of a point. You can just modify the PocketMine class loa
 
 ### Composer.json "protection"
 It would be suboptimal if people ran `composer install` without the wrapper. If you want to minimize the chance of this happening, you can add `#miner` to the very beginning of the `composer.json` on its own line. This will make the JSON invalid so composer will throw errors when using it, but Miner will fix the JSON before it is sent to composer.
+
+### Using Miner
+Using miner is easy. Just download composer and install

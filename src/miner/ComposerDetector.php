@@ -13,7 +13,7 @@ class ComposerDetector{
             return true;
         }
         if(strpos(`php composer.phar`, "Could not open input file") === false){
-            ComposerDetector::$command = "php composer.phar";
+            ComposerDetector::$command = "php " . getcwd() . "composer.phar";
             return true;
         }
     }
