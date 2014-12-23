@@ -11,7 +11,6 @@ class Packager{
             $phar = new \Phar($pharPath);
             $phar->setMetadata([
                 "name" => "Miner",
-                "version" => "0.1",
                 "creationDate" => strtotime("now")
             ]);
             $phar->interceptFileFuncs();
