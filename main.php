@@ -1,7 +1,11 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
-
+define("MAIN_PATH", __DIR__);
 $climate = new \League\CLImate\CLImate();
+if(Phar::canWrite() && isset($argv[1]) && $argv[1] === "_pack"){
+    \miner\Packager::package($climate);
+    array_shift($argv);
+}
 $climate->br()->flank("Preparing");
 if(\miner\ComposerDetector::detect()){
     $climate->out(\miner\Output::indent("Detected composer at <white>" . \miner\ComposerDetector::getCommand() . "</white>"));
