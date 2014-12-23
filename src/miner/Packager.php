@@ -30,7 +30,12 @@ class Packager{
             }
             $phar->compressFiles(\Phar::GZ);
             $phar->stopBuffering();
+            $climate->green("Packaged and available at $pharPath");
+            sleep(1);
             return $pharPath;
+        }
+        else{
+            $climate->red()->underline("Packaging aborted.");
         }
     }
 }

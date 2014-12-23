@@ -6,20 +6,21 @@ if(Phar::canWrite() && isset($argv[1]) && $argv[1] === "_pack"){
     \miner\Packager::package($climate);
     array_shift($argv);
 }
-$climate->br()->flank("Preparing");
+$climate->br()->flank("<bold><underline><cyan>Preparing</cyan></bold></underline>");
 if(\miner\ComposerDetector::detect()){
     $climate->out(\miner\Output::indent("Detected composer at <white>" . \miner\ComposerDetector::getCommand() . "</white>"));
     $composerFile = new \miner\JSONProtector("composer.json");
     $composerFile->unprotect();
     $climate->comment(\miner\Output::indent("Prepared composer.json"));
-    $climate->br()->flank("Executing");
+    $climate->br()->flank("<bold><underline><cyan>Executing</cyan></bold></underline>");
     $composer = new \miner\Composer(\miner\ComposerDetector::getCommand(), $climate);
     $composer->execute(array_slice($argv, 1));
     while($composer->getLine());
     $composerFile->protect();
-    $climate->br()->flank("Porting Infrastructure");
+    $climate->br()->flank("<bold><underline><cyan>Porting Infrastructure</cyan></bold></underline>");
     if(is_dir("vendor")){
         $iterator = new RecursiveDirectoryIterator("vendor");
+        $climate->br();
         $progress = $climate->progress(iterator_count(new RecursiveIteratorIterator($iterator)));
         searchDirectory($iterator, $progress, $climate);
     }
