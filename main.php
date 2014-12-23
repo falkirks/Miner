@@ -18,6 +18,8 @@ if(\miner\ComposerDetector::detect()){
     else{
         $climate->comment(\miner\Output::indent("Nothing to port"));
     }
+    $climate->br()->flank("Cleaning Infrastructure (beta)");
+
     $climate->br();
 }
 else{
@@ -42,6 +44,7 @@ function searchDirectory(RecursiveDirectoryIterator $iterator, \League\CLImate\T
                     if(!is_array($item)){
                         $to = "src/" . str_replace("\\", "/", $name);
                         @mkdir($to, 0775, true);
+                        file_put_contents($to . "/.miner", time());
                         copyDirectory(implode("/", array_slice($file, 0, -1)) . "/" . $item, $to, $progress);
                     }
                 }
