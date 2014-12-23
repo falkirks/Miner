@@ -1,0 +1,53 @@
+[
+    {
+        "name": "league/climate",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thephpleague/climate.git",
+            "reference": "91017b8b8d438801bab126e4f294db0ab55ac924"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thephpleague/climate/zipball/91017b8b8d438801bab126e4f294db0ab55ac924",
+            "reference": "91017b8b8d438801bab126e4f294db0ab55ac924",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "dev-master",
+            "phpunit/phpunit": "4.1.*"
+        },
+        "time": "2014-12-15 18:08:40",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "League\\CLImate\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Joe Tannenbaum",
+                "email": "hey@joe.codes",
+                "homepage": "http://joe.codes/",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP's best friend for the terminal. CLImate allows you to easily output colored text, special formats, and more.",
+        "keywords": [
+            "cli",
+            "colors",
+            "command",
+            "php",
+            "terminal"
+        ]
+    }
+]

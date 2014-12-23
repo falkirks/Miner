@@ -1,0 +1,22 @@
+{
+  "name": "falkirks/Miner",
+  "description": "Handlebars processor for php",
+  "type": "library",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Falkirks",
+      "email": "me@falkirks.com"
+    }
+  ],
+  "require": {
+    "league/climate": "dev-master"
+  },
+  "autoload": {
+    "psr-0": {
+      "miner": "src/"
+    }
+  }
+}
