@@ -5,10 +5,14 @@ $climate = new \League\CLImate\CLImate();
 $climate->br()->flank("Preparing");
 if(\miner\ComposerDetector::detect()){
     $climate->out(\miner\Output::indent("Detected composer at <white>" . \miner\ComposerDetector::getCommand() . "</white>"));
+    $composerFile = new \miner\JSONProtector("composer.json");
+    $composerFile->unprotect();
+    $climate->comment(\miner\Output::indent("Prepared composer.json"));
     $climate->br()->flank("Executing");
     $composer = new \miner\Composer(\miner\ComposerDetector::getCommand(), $climate);
     $composer->execute(array_slice($argv, 1));
     while($composer->getLine());
+    $composerFile->protect();
     $climate->br()->flank("Porting Infrastructure");
     if(is_dir("vendor")){
         $iterator = new RecursiveDirectoryIterator("vendor");
