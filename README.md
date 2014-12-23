@@ -8,4 +8,4 @@ Miner doesn't have much of a point. You can just modify the PocketMine class loa
 It would be suboptimal if people ran `composer install` without the wrapper. If you want to minimize the chance of this happening, you can add `#miner` to the very beginning of the `composer.json` on its own line. This will make the JSON invalid so composer will throw errors when using it, but Miner will fix the JSON before it is sent to composer.
 
 ### Using Miner
-Using miner is easy. Just download composer and install
+Using miner is easy. Just download composer and install it somewhere standard. Then download a Miner phar build and stick it somewhere you can access it easily. Now you can use `Miner.phar` in place of `composer.phar` when interacting with PocketMine plugins.
