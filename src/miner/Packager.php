@@ -14,7 +14,8 @@ class Packager{
                 "version" => "0.1",
                 "creationDate" => strtotime("now")
             ]);
-            $phar->setStub('<?php require_once("main.php");__HALT_COMPILER();');
+            $phar->interceptFileFuncs();
+            $phar->setStub($phar->createDefaultStub("main.php"));
             $phar->setSignatureAlgorithm(\Phar::SHA1);
             $phar->startBuffering();
             $filePath = MAIN_PATH;

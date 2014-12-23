@@ -5,7 +5,7 @@ class JSONProtector{
     private $wasProtected;
     private $file;
     public function __construct($file){
-        $this->file = $file;
+        $this->file = getcwd() . $file;
         $this->wasProtected = false;
     }
     public function protect(){

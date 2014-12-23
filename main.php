@@ -18,7 +18,7 @@ if(\miner\ComposerDetector::detect()){
     while($composer->getLine());
     $composerFile->protect();
     $climate->br()->flank("<bold><underline><cyan>Porting Infrastructure</cyan></bold></underline>");
-    if(is_dir("vendor")){
+    if(is_dir(getcwd() . "/vendor")){
         $iterator = new RecursiveDirectoryIterator("vendor");
         $climate->br();
         $progress = $climate->progress(iterator_count(new RecursiveIteratorIterator($iterator)));
